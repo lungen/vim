@@ -32,13 +32,19 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 
 " Powerline
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Lightline
+"Plugin 'itchyny/lightline.vim'
 
 " System Clipboad
 set clipboard=unnamed
 
 " YCM
 Plugin 'Valloric/YouCompleteMe'
+
+" NERC COMMENTER
+" Plugin 'scrooloose/nerdcommenter'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
@@ -66,6 +72,16 @@ nnoremap <space> za
 let g:SimpylFold_docstring_preview=1
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+
+" Commenting blocks of code.
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " Python, PEP-008
 au BufRead,BufNewFile *.py,*.pyw set expandtab
@@ -132,5 +148,5 @@ if has("autocmd")
 endif
 
 " colorscheme
-colorscheme jellybeans
-
+"colorscheme jellybeans
+colorscheme delek_mine
