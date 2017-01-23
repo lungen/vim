@@ -141,6 +141,8 @@ nnoremap <silent> <F12> :w\|!clear;python3.5 %<CR>
 nnoremap <silent> <F11> :w\|!clear;python3.5 -i %<CR>
 
 imap jj <Esc>
+nmap ff /
+cmap ff <Esc>
 
 " remember position when reopening file
 if has("autocmd")
