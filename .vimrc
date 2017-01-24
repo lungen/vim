@@ -139,6 +139,7 @@ map <C-]> :YcmCompleter GoToImprecise<CR>
 " nnoremap <silent> <F12> :!clear;python3.5 %<CR>
 nnoremap <silent> <F12> :w\|!clear;python3.5 %<CR>
 nnoremap <silent> <F11> :w\|!clear;python3.5 -i %<CR>
+nnoremap <silent> <F8> :w\|!pudb3 %<CR>
 
 imap jj <Esc>
 nmap ff /
