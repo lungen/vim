@@ -20,10 +20,21 @@ Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 
 " File Browsing
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 
 " Auto-Indentation
-Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'vim-scripts/indentpython.vim'
+Plugin 'Vimjas/vim-python-pep8-indent'
+
+" display indentation
+" not so good
+" Plugin 'git://github.com/nathanaelkane/vim-indent-guides.git' 
+
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_char = '┆'
+"let g:indentLine_setColors = 0
+"let g:indentLine_color_term = 239
+let g:indentLine_color_term = 0
 
 " Super Search
 Plugin 'kien/ctrlp.vim'
@@ -42,6 +53,8 @@ set clipboard=unnamed
 
 " YCM
 Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'fatih/vim-go'
 
 " NERC COMMENTER
 " Plugin 'scrooloose/nerdcommenter'
@@ -134,12 +147,16 @@ set noswapfile
 set nobackup
 set nowritebackup
 
-map <C-]> :YcmCompleter GoToImprecise<CR>
+"map <C-]> :YcmCompleter GoToImprecise<CR>
+map <C-a> :YcmCompleter GoToImprecise<CR>
 
 " nnoremap <silent> <F12> :!clear;python3.5 %<CR>
 nnoremap <silent> <F12> :w\|!clear;python3.5 %<CR>
-nnoremap <silent> <F11> :w\|!clear;python3.5 -i %<CR>
-nnoremap <silent> <F8> :w\|!pudb3 %<CR>
+nnoremap <silent> <F8> :w\|!clear;python3.5 -i %<CR>
+nnoremap <silent> <F10> :w\|!ipython3 %<CR>
+nnoremap <silent> <F9> :w\|!ipython3 -i  %<CR>
+nnoremap <silent> <F6> :w\|!ipdb3 %<CR>
+nnoremap <silent> <F5> :w\|!pudb3 %<CR>
 
 imap jj <Esc>
 nmap ff /
@@ -153,3 +170,9 @@ endif
 " colorscheme
 "colorscheme jellybeans
 colorscheme delek_mine
+
+" indent-visual: Plugin => vim_indent_guides
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_start_size = 1
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1
